@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Väder</title>
+
+  <style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: #2e3436;
+  font-size: 1.2em;
+}
+
+table {
+  width: 100%;
+  border: 0;
+}
+
+td, th {
+  text-align: left;
+  padding: 10px 10px;
+}
+
+@media screen and (min-width: 800px) {
+  div.container {
+    width: 800px;
+    margin: 0 auto;
+  }
+}
+
+a { color: #204a87; }
+a:visited { color: #5c3566; }
+
+h1 {
+  border-bottom: 1px solid #2e3436;
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Punktprognoser</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Plats</th>
+          <th>vaderprognosen.se</th>
+          <th>ballong.org</th>
+          <th>windguru.cz</th>
+          <th>smhi.se</th>
+        </tr>
+      </thead>
+      <tr>
+        <td class="header">Alingsås</td>
+        <td>
+          <a href="http://www.vaderprognosen.se/vader/prognos/hpfcst.php?place=Alingsås&type=0">Höjdvind</a> /
+          <a href="http://www.vaderprognosen.se/vader/prognos/hpfcst.php?place=Alingsås&type=1">Temperatur</a>
+        </td>
+        <td>
+          <a href="http://www.ballong.org/drupal/vader/2515">Alingsås</a>
+        </td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="header">Borlänge</td>
+        <td></td>
+        <td></td>
+        <td>
+          <a href="http://www.windguru.cz/int/index.php?sc=21763">GFS & WRF</a>
+        </td>
+      </tr>
+      <tr>
+        <td class="header">Dalsland</td>
+        <td>
+          <a href="http://www.vaderprognosen.se/vader/prognos/hpfcst.php?place=Kroppefjäll&type=0">Höjdvind</a> /
+          <a href="http://www.vaderprognosen.se/vader/prognos/hpfcst.php?place=Kroppefjäll&type=1">Temperatur</a>
+        </td>
+        <td>
+          <a href="http://www.ballong.org/drupal/vader/2540">Högsäter</a>
+        </td>
+        <td>
+          <a href="http://www.windguru.cz/int/index.php?sc=4849">GFS & WRF</a>
+        </td>
+      </tr>
+      <tr>
+        <td class="header">Gränna</td>
+        <td>
+          <a href="http://www.vaderprognosen.se/vader/prognos/hpfcst.php?place=Gränna&type=0">Höjdvind</a> /
+          <a href="http://www.vaderprognosen.se/vader/prognos/hpfcst.php?place=Gränna&type=1">Temperatur</a>
+        </td>
+        <td></td>
+        <td>
+          <a href="http://www.windguru.cz/int/index.php?sc=2781">GFS & WRF</a>
+        </td>
+      </tr>
+      <tr>
+        <td class="header">Göteborg</td>
+        <td>
+          <a href="http://www.vaderprognosen.se/vader/prognos/hpfcst.php?place=Göteborg&type=0">Höjdvind</a> /
+          <a href="http://www.vaderprognosen.se/vader/prognos/hpfcst.php?place=Göteborg&type=1">Temperatur</a>
+        </td>
+        <td>
+          <a href="http://www.ballong.org/drupal/vader/2512">Säve</a> /
+          <a href="http://www.ballong.org/drupal/vader/2526">Landvetter</a>
+        </td>
+        <td>
+          <a href="http://www.windguru.cz/int/index.php?sc=86">GFS & WRF</a>
+        </td>
+        <td>
+          <a href="http://www.smhi.se/vadret/ortsprognoser#ort=2711537,G%C3%B6teborg,G%C3%B6teborg,Sverige,57.716667/11.966667;flik=0">Ortsprognos</a>
+        </td>
+      </tr>
+      <tr>
+        <td class="header">Jönköping</td>
+        <td>
+          <a href="http://www.vaderprognosen.se/vader/prognos/hpfcst.php?place=Jönköping&type=0">Höjdvind</a> /
+          <a href="http://www.vaderprognosen.se/vader/prognos/hpfcst.php?place=Jönköping&type=1">Temperatur</a>
+        </td>
+        <td>
+          <a href="http://www.ballong.org/drupal/vader/2550">Jönköping</a>
+        </td>
+        <td>
+          <a href="http://www.windguru.cz/int/index.php?sc=152">GFS & WRF</a>
+        </td>
+      </tr>
+      <tr>
+        <td class="header">Skara</td>
+        <td>
+          <a href="http://www.vaderprognosen.se/vader/prognos/hpfcst.php?place=Skara&type=0">Höjdvind</a> /
+          <a href="http://www.vaderprognosen.se/vader/prognos/hpfcst.php?place=Skara&type=1">Temperatur</a>
+        </td>
+        <td></td>
+        <td>
+          <a href="http://www.windguru.cz/int/index.php?sc=33291">GFS & WRF</a>
+        </td>
+      </tr>
+      <tr>
+        <td class="header">Skövde</td>
+        <td>
+          <a href="http://www.vaderprognosen.se/vader/prognos/hpfcst.php?place=Skövde&type=0">Höjdvind</a> /
+          <a href="http://www.vaderprognosen.se/vader/prognos/hpfcst.php?place=Skövde&type=1">Temperatur</a>
+        </td>
+        <td>
+          <a href="http://www.ballong.org/drupal/vader/2535">Skövde</a>
+        </td>
+        <td>
+          <a href="http://www.windguru.cz/int/index.php?sc=32689">GFS & WRF</a>
+        </td>
+      </tr>
+      <tr>
+        <td class="header">Såtenäs</td>
+        <td>
+          <a href="http://www.vaderprognosen.se/vader/prognos/hpfcst.php?place=Såtenäs&type=0">Höjdvind</a> /
+          <a href="http://www.vaderprognosen.se/vader/prognos/hpfcst.php?place=Såtenäs&type=1">Temperatur</a>
+        </td>
+        <td>
+          <a href="http://www.ballong.org/drupal/vader/2520">Såtenäs</a>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="header">Vara</td>
+        <td>
+          <a href="http://www.vaderprognosen.se/vader/prognos/hpfcst.php?place=Vara&type=0">Höjdvind</a> /
+          <a href="http://www.vaderprognosen.se/vader/prognos/hpfcst.php?place=Vara&type=1">Temperatur</a>
+        </td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="header">Uddevalla</td>
+        <td>
+          <a href="http://www.vaderprognosen.se/vader/prognos/hpfcst.php?place=Uddevalla&type=0">Höjdvind</a> /
+          <a href="http://www.vaderprognosen.se/vader/prognos/hpfcst.php?place=Uddevalla&type=1">Temperatur</a>
+        </td>
+        <td></td>
+        <td>
+          <a href="http://www.windguru.cz/int/index.php?sc=333774">GFS & WRF</a>
+        </td>
+      </tr>
+      <tr>
+        <td class="header">Örebro</td>
+        <td>
+          <a href="http://www.vaderprognosen.se/vader/prognos/hpfcst.php?place=Örebro&type=0">Höjdvind</a> /
+          <a href="http://www.vaderprognosen.se/vader/prognos/hpfcst.php?place=Örebro&type=1">Temperatur</a>
+        </td>
+        <td>
+          <a href="http://www.ballong.org/drupal/vader/2432">Örebro</a>
+        </td>
+        <td>
+          <a href="http://www.windguru.cz/int/index.php?sc=27536">GFS & WRF</a>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="container">
+    <h1>Väderkartor</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Site</th>
+          <th>Radar</th>
+          <th>Lufttryck</th>
+          <th>Nederbörd</th>
+          <th>Vind</th>
+          <th>Moln</th>
+          <th>Satellit</th>
+        </tr>
+      </thead>
+      <tr>
+        <td class="header">se.baltrad.eu</td>
+        <td><a href="http://se.baltrad.eu">5 min</a></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="header">smhi.se</td>
+        <td><a href="http://www.smhi.se/vadret/nederbord-molnighet/radar-blixt-sverige">15 min</a></td>
+        <td>TODO</td>
+        <td>TODO</td>
+        <td>TODO</td>
+        <td>TODO</td>
+        <td>TODO</td>
+      </tr>
+      <tr>
+        <td class="header">vaderradar.se</td>
+        <td><a href="http://www.vaderradar.se/radarscandinavie">15 min</a></td>
+        <td><a href="http://www.vaderradar.se/gfsforecast/LTEuropeWind">Europa</a></td>
+        <td><a href="http://www.vaderradar.se/radarscanprognos">Sverige</a> / <a href="http://www.vaderradar.se/gfsforecast/LTEuropeRain">Europa</a></td>
+        <td><a href="http://www.vaderradar.se/gfsforecast/LTEuropeWind">Europa</a></td>
+        <td><a href="http://www.vaderradar.se/gfsforecast/LTEuropeClouds">Europa</a></td>
+        <td class="header">TODO</td>
+      </tr>
+      <tr>
+        <td class="header">klart.se</td>
+        <td><a href="http://www.klart.se/nederbörd" title="Inkluderar radarprognos, regnprognos och radar ca 2 dygn bakåt i tiden.">60 min</a></td>
+        <td><a href="http://www.klart.se/lufttryck">Europa</a></td>
+        <td><a href="http://www.klart.se/nederb%C3%B6rd">Sverige</a> / <a href="http://www.klart.se/europa/nederbörd">Europa</a></td>
+        <td><a href="http://www.klart.se/vind">Sverige</a></td>
+        <td><a href="http://www.klart.se/moln">Sverige</a></td>
+        <td><a href="http://www.klart.se/europa/satellit">Europa</a></td>
+      </tr>
+      <tr>
+        <td class="header">vaderpronosen.se</td>
+        <td></td>
+        <td></td>
+        <td><a href="http://www.vaderprognosen.se/vader/prognos/index.php?d=2&a=2&aoi=th1&p=prec">Södra Sverige</a></td>
+        <td><a href="http://www.vaderprognosen.se/vader/prognos/index.php?d=2&a=2&aoi=th1&p=wind10m">Södra Sverige</a></td>
+        <td><a href="http://www.vaderprognosen.se/vader/prognos/index.php?d=2&a=2&aoi=th1&p=cldbase">Södra Sverige</a></td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="container">
+    <h1>Flygväder</h1>
+    <ul>
+      <li>
+        <a href="https://aro.lfv.se/Links/Link/ViewLink?type=MET&TorLinkId=278">LHP Karta</a>
+        <ul>
+          <li><a href="https://aro.lfv.se/Links/Link/ViewLink?type=MET&TorLinkId=307">LHP Område A</a></li>
+          <li><a href="https://aro.lfv.se/Links/Link/ViewLink?type=MET&TorLinkId=308">LHP Område B</a></li>
+          <li><a href="https://aro.lfv.se/Links/Link/ViewLink?type=MET&TorLinkId=309">LHP Område C</a></li>
+          <li><a href="https://aro.lfv.se/Links/Link/ViewLink?type=MET&TorLinkId=310">LHP Område E</a></li>
+        </ul>
+      </li>
+      <li><a href="https://aro.lfv.se/Links/Link/ViewLink?type=MET&TorLinkId=300">METAR</a></li>
+      <li><a href="https://aro.lfv.se/Links/Link/ViewLink?type=MET&TorLinkId=304">TAF</a></li>
+      <li><a href="https://aro.lfv.se/Links/Link/ViewLink?type=MET&TorLinkId=229">NSWC</a></li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <h1>Textprognoser</h1>
+    <ul>
+      <li><a href="http://www.smhi.se/vadret/vadret-i-sverige/vaderoversikt-sverige-meteorologens-kommentar">SMHI Väderöversikt</a></li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <h1>Kuriosa</h1>
+    <ul>
+      <li><a href="http://earth.nullschool.net">Animerad karta (med projections-kontroll)</a></li>
+      <li><a href="https://www.windyty.com">Animerad karta (windyty.com)</a></li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <h1>Geografiska kartor</h1>
+    <ul>
+      <li><a href="http://kso2.lantmateriet.se" title="Topografisk karta, tärrängkartan, vägkartan, ortfoto">lantmäteriet.se</a></li>
+      <li><a href="http://hitta.se/kartan" title="Karta, flygfoto, street-view">hitta.se</a></li>
+      <li><a href="https://www.bing.com/maps" title="Karta, flygfoto, street-view, fågelperspektiv">bing.com</a></li>
+      <li><a href="http://kartor.eniro.se" title="Karta, flygfoto, street-view">eniro.se</a></li>
+      <li><a href="https://google.com/maps">google.com</a></li>
+    </ul>
+  </div>
+</body>
+</html>
