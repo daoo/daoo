@@ -100,20 +100,20 @@ compactSite = H.docTypeHtml $ do
     H.header $ H.h1 "FPC"
 
     H.section $ do
-      H.h1 "Punktprognoser"
+      H.h2 "Punktprognoser"
       H.table $ mapM_ (uncurry tableRow) (M.assocs (groupLinks pointPrognosis))
 
-      H.h1 "Fältprognoser"
+      H.h2 "Fältprognoser"
       H.table $ mapM_ (uncurry tableRow) (M.assocs (groupLinks fieldPrognosis))
 
-      H.h1 "Metrologens Kommentarer"
+      H.h2 "Metrologens Kommentarer"
       H.p $ commasep
         [ "DMI Vecka"            `ahref` "http://www.dmi.dk/vejr/til-lands/landsudsigten"
         , "DMI Månad och Säsong" `ahref` "http://www.dmi.dk/vejr/til-lands/maaned-og-saeson"
         , "SMHI Vecka"           `ahref` "http://www.smhi.se/vadret/vadret-i-sverige/vaderoversikt-sverige-meteorologens-kommentar"
         ]
 
-      H.h1 "Flygvädret"
+      H.h2 "Flygvädret"
       H.p $ commasep
         [ "NSWC"  `ahref` "https://aro.lfv.se/Links/Link/ViewLink?type=MET&TorLinkId=229"
         , "METAR" `ahref` "https://aro.lfv.se/Links/Link/ViewLink?type=MET&TorLinkId=300"
@@ -132,14 +132,14 @@ compactSite = H.docTypeHtml $ do
         , "NOTAM"   `ahref` "https://aro.lfv.se/Links/Link/ViewLink?TorLinkId=162&type=AIS"
         ]
 
-      H.h1 "Väderlänkar"
+      H.h2 "Väderlänkar"
       H.p $ commasep
         [ "earth.nullschool.net" `ahref` "http://earth.nullschool.net"
         , "windyty.com"          `ahref`"https://www.windyty.com"
         , "wetterzentrale.de"    `ahref` "http://www.wetterzentrale.de"
         ]
 
-      H.h1 "Geografiska Kartor"
+      H.h2 "Geografiska Kartor"
       H.p $ commasep
         [ "lantmateriet.se" `ahref` "http://kso2.lantmateriet.se"
         , "hitta.se"        `ahref` "http://hitta.se/kartan"
@@ -167,7 +167,8 @@ compactSite = H.docTypeHtml $ do
         Clay.maxWidth (Clay.px 800)
         Clay.margin Clay.nil Clay.auto Clay.nil Clay.auto
 
-      Clay.h1 Clay.? Clay.borderBottom Clay.solid (Clay.px 1) Clay.black
+      Clay.h1 <> Clay.h2 Clay.?
+        Clay.borderBottom Clay.solid (Clay.px 1) Clay.black
 
 urlenc :: String -> String
 urlenc = encodeWith escape
