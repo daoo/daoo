@@ -110,7 +110,7 @@ compactSite = H.docTypeHtml $ do
       H.p $ commasep
         [ "DMI Vecka"            `ahref` "http://www.dmi.dk/vejr/til-lands/landsudsigten"
         , "DMI Månad och Säsong" `ahref` "http://www.dmi.dk/vejr/til-lands/maaned-og-saeson"
-        , "SMHI Vecka"           `ahref` "http://www.smhi.se/vadret/vadret-i-sverige/vaderoversikt-sverige-meteorologens-kommentar"
+        , "SMHI Vecka"           `ahref` "http://www.smhi.se/vadret/vadret-i-sverige/meteorologens-kommentar"
         ]
 
       H.h2 "Flygvädret"
