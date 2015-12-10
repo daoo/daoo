@@ -141,11 +141,11 @@ compactSite = H.docTypeHtml $ do
 
       H.h2 "Geografiska Kartor"
       H.p $ commasep
-        [ "lantmateriet.se" `ahref` "http://kso2.lantmateriet.se"
-        , "hitta.se"        `ahref` "http://hitta.se/kartan"
+        [ "lantmateriet.se" `ahref` "https://kso.etjanster.lantmateriet.se"
+        , "hitta.se"        `ahref` "http://www.hitta.se/kartan"
         , "eniro.se"        `ahref` "http://kartor.eniro.se"
         , "bing.com"        `ahref` "https://www.bing.com/maps"
-        , "google.com"      `ahref` "https://google.com/maps"
+        , "google.com"      `ahref` "https://www.google.com/maps"
         ]
   where
     commasep = mconcat . intersperse ", "
