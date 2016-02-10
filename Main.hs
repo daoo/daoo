@@ -89,17 +89,57 @@ fieldPrognosis =
   , Link { linkUrl = "http://www.dmi.dk/vejr/til-lands/vejrkort", linkTitle = "dmi.dk", linkGroup = "Lufttryck",     linkExtra = "" }
   ]
 
+style :: Clay.Css
+style = do
+  Clay.html <> Clay.body Clay.? do
+    Clay.margin Clay.nil Clay.nil Clay.nil Clay.nil
+    Clay.padding Clay.nil Clay.nil Clay.nil Clay.nil
+
+  Clay.body Clay.? do
+    Clay.fontFamily ["Roboto"] [Clay.sansSerif]
+    Clay.color "#757575"
+
+  Clay.header Clay.? do
+    Clay.height (Clay.rem 5)
+    Clay.boxShadow Clay.nil (Clay.px 1) (Clay.px 6) (Clay.rgba 0 0 0 90)
+
+  Clay.h1 <> Clay.h2 Clay.? do
+    Clay.color "#444444"
+
+  Clay.header Clay.** Clay.h1 Clay.? do
+    Clay.margin Clay.nil Clay.nil Clay.nil Clay.nil
+    Clay.lineHeight (Clay.rem 5)
+
+  ".content" Clay.? do
+    Clay.maxWidth (Clay.px 800)
+    Clay.margin Clay.nil Clay.auto Clay.nil Clay.auto
+
+  Clay.a Clay.? do
+    Clay.backgroundColor "#448aff"
+    Clay.color Clay.white
+    Clay.textDecoration Clay.none
+    Clay.fontSize (Clay.rem 0.875)
+
+    Clay.borderRadius (Clay.px 2) (Clay.px 2) (Clay.px 2) (Clay.px 2)
+
+    Clay.margin (Clay.px 2) (Clay.px 2) (Clay.px 2) (Clay.px 2)
+    Clay.textAlign (Clay.alignSide Clay.sideCenter)
+    Clay.display Clay.inlineBlock
+    Clay.lineHeight (Clay.rem 3)
+    Clay.width (Clay.rem 9)
+
 compactSite :: H.Html
 compactSite = H.docTypeHtml $ do
   H.head $ do
     H.meta H.! A.charset "utf-8"
     H.meta H.! A.content "width=device-width,initial-scale=1" H.! A.name "viewport"
+    H.link H.! A.href "https://fonts.googleapis.com/css?family=Roboto" H.! A.rel "stylesheet" H.! A.type_ "text/css"
     H.style (H.toHtml (Clay.renderWith Clay.compact [] style))
     H.title "Flygplanering"
   H.body $ do
-    H.header $ H.h1 "FPC"
+    H.header $ content $ H.h1 "Flight Planning Center"
 
-    H.section $ do
+    H.section $ content $ do
       H.h2 "Punktprognoser"
       H.table $ mapM_ (uncurry tableRow) (M.assocs (groupLinks pointPrognosis))
 
@@ -107,40 +147,40 @@ compactSite = H.docTypeHtml $ do
       H.table $ mapM_ (uncurry tableRow) (M.assocs (groupLinks fieldPrognosis))
 
       H.h2 "Metrologens Kommentarer"
-      H.p $ commasep
-        [ "DMI Vecka"            `ahref` "http://www.dmi.dk/vejr/til-lands/landsudsigten"
-        , "DMI Månad och Säsong" `ahref` "http://www.dmi.dk/vejr/til-lands/maaned-og-saeson"
-        , "SMHI Vecka"           `ahref` "http://www.smhi.se/vadret/vadret-i-sverige/meteorologens-kommentar"
+      H.p $ mconcat
+        [ "DMI Vecka"  `ahref` "http://www.dmi.dk/vejr/til-lands/landsudsigten"
+        , "DMI Säsong" `ahref` "http://www.dmi.dk/vejr/til-lands/maaned-og-saeson"
+        , "SMHI Vecka" `ahref` "http://www.smhi.se/vadret/vadret-i-sverige/meteorologens-kommentar"
         ]
 
       H.h2 "Flygvädret"
-      H.p $ commasep
+      H.p $ mconcat
         [ "NSWC"  `ahref` "https://aro.lfv.se/Links/Link/ViewLink?type=MET&TorLinkId=229"
         , "METAR" `ahref` "https://aro.lfv.se/Links/Link/ViewLink?type=MET&TorLinkId=300"
         , "TAF"   `ahref` "https://aro.lfv.se/Links/Link/ViewLink?type=MET&TorLinkId=304"
         ]
 
-      H.p $ commasep
+      H.p $ mconcat
         [ "LHP Område A" `ahref` "https://aro.lfv.se/Links/Link/ViewLink?type=MET&TorLinkId=307"
         , "LHP Område B" `ahref` "https://aro.lfv.se/Links/Link/ViewLink?type=MET&TorLinkId=308"
         , "LHP Område C" `ahref` "https://aro.lfv.se/Links/Link/ViewLink?type=MET&TorLinkId=309"
         , "LHP Område D" `ahref` "https://aro.lfv.se/Links/Link/ViewLink?type=MET&TorLinkId=310"
         ]
 
-      H.p $ commasep
+      H.p $ mconcat
         [ "AIP SUP" `ahref` "https://aro.lfv.se/Editorial/View/IAIP?folderId=22"
         , "NOTAM"   `ahref` "https://aro.lfv.se/Links/Link/ViewLink?TorLinkId=162&type=AIS"
         ]
 
       H.h2 "Väderlänkar"
-      H.p $ commasep
+      H.p $ mconcat
         [ "earth.nullschool.net" `ahref` "http://earth.nullschool.net"
         , "windyty.com"          `ahref`"https://www.windyty.com"
         , "wetterzentrale.de"    `ahref` "http://www.wetterzentrale.de"
         ]
 
       H.h2 "Geografiska Kartor"
-      H.p $ commasep
+      H.p $ mconcat
         [ "lantmateriet.se" `ahref` "https://kso.etjanster.lantmateriet.se"
         , "hitta.se"        `ahref` "http://www.hitta.se/kartan"
         , "eniro.se"        `ahref` "http://kartor.eniro.se"
@@ -148,7 +188,7 @@ compactSite = H.docTypeHtml $ do
         , "google.com"      `ahref` "https://www.google.com/maps"
         ]
   where
-    commasep = mconcat . intersperse ", "
+    content = H.div H.! A.class_ "content"
 
     ahref :: String -> String -> H.Html
     ahref a b = H.a (H.toHtml a) H.! A.href (H.toValue (urlenc b))
@@ -160,15 +200,7 @@ compactSite = H.docTypeHtml $ do
 
     tableRow heading links = H.tr $ do
       H.td (H.toHtml heading)
-      H.td (commasep $ map fromLink links)
-
-    style = do
-      Clay.body Clay.? do
-        Clay.maxWidth (Clay.px 800)
-        Clay.margin Clay.nil Clay.auto Clay.nil Clay.auto
-
-      Clay.h1 <> Clay.h2 Clay.?
-        Clay.borderBottom Clay.solid (Clay.px 1) Clay.black
+      H.td (mconcat $ map fromLink links)
 
 urlenc :: String -> String
 urlenc = encodeWith escape
