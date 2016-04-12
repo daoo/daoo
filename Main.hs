@@ -178,8 +178,9 @@ compactSite = H.docTypeHtml $ do
       H.h2 "Väderlänkar"
       H.p $ mconcat
         [ "earth.nullschool.net" `ahref` "http://earth.nullschool.net"
-        , "windyty.com"          `ahref`"https://www.windyty.com"
+        , "windyty.com"          `ahref` "https://www.windyty.com"
         , "wetterzentrale.de"    `ahref` "http://www.wetterzentrale.de"
+        , "svn.universeum.se"    `ahref` "http://svn.universeum.se/index_vadretnu.htm"
         ]
 
       H.h2 "Geografiska Kartor"
