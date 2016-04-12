@@ -46,15 +46,15 @@ pointPrognosis =
   where
     vaderprognosen ident =
       [ Link "Höjdvind" height ""
-      , Link "Temperaturkurva" temp ""
+      , Link "Tempkurva" temp ""
       ]
       where
         height = "http://www.vaderprognosen.se/vader/prognos/hpfcst.php?place=" <> ident <> "&type=0"
         temp   = "http://www.vaderprognosen.se/vader/prognos/hpfcst.php?place=" <> ident <> "&type=1"
 
     ballong, windguru :: Int -> [String -> Link]
-    ballong ident = [Link "Ballongväder" ("http://www.ballong.org/drupal/vader/" <> show ident) ""]
-    windguru ident = [Link "Översiktsprognos" ("http://www.windguru.cz/int/index.php?sc=" <> show ident) ""]
+    ballong ident = [Link "Ballong" ("http://www.ballong.org/drupal/vader/" <> show ident) ""]
+    windguru ident = [Link "WindGuru" ("http://www.windguru.cz/int/index.php?sc=" <> show ident) ""]
 
 fieldPrognosis :: [Link]
 fieldPrognosis =
