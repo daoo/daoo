@@ -38,7 +38,10 @@ pointPrognosis =
   map ($"Örebro") (ballong 2432 ++ vaderprognosen "Örebro" ++ windguru 27536) ++
   map ($"Skara") (vaderprognosen "Skara" ++ windguru 33291) ++
   map ($"Vara") (vaderprognosen "Vara") ++
-  map ($"Uddevalla") (vaderprognosen "Uddevalla" ++ windguru 333774)
+  map ($"Uddevalla") (vaderprognosen "Uddevalla" ++ windguru 333774) ++
+  map ($"Enköping") (vaderprognosen "Enköping" ++ windguru 163242) ++
+  map ($"Västerås") (ballong 2446 ++ windguru 100495) ++
+  map ($"Uppsala") (ballong 2458 ++ vaderprognosen "Uppsala")
 
   where
     vaderprognosen ident =
