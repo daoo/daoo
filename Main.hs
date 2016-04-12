@@ -114,7 +114,7 @@ style = do
     Clay.lineHeight (Clay.rem 5)
 
   ".content" Clay.? do
-    Clay.maxWidth (Clay.px 800)
+    Clay.maxWidth (Clay.rem 50)
     Clay.margin Clay.nil Clay.auto Clay.nil Clay.auto
 
   Clay.a Clay.? do
