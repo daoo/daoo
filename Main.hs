@@ -30,8 +30,8 @@ pointPrognosis =
   map ($"Dalsland") (windguru 4849 ++ ballong 2540 ++ vaderprognosen "Kroppefjäll") ++
   map ($"Gränna") (windguru 2781 ++ vaderprognosen "Gränna") ++
   map ($"Göteborg") (windguru 86 ++ vaderprognosen "Göteborg") ++
-  map ($"Säve") (ballong 2512) ++
-  map ($"Landvetter") (ballong 2526) ++
+  map ($"Säve") (ballong 2512 ++ vaderprognosen "Säve" ++ windguru 254659) ++
+  map ($"Landvetter") (ballong 2526 ++ vaderprognosen "Landvetter" ++ windguru 254656) ++
   map ($"Jönköping") (windguru 152 ++ ballong 2550 ++ vaderprognosen "Jönköping") ++
   map ($"Skövde") (ballong 2535 ++ vaderprognosen "Skövde" ++ windguru 32689) ++
   map ($"Såtenäs") (ballong 2520 ++ vaderprognosen "Såtenäs") ++
