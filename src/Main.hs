@@ -5,7 +5,11 @@ import Data.Monoid
 import Site
 import Text.Blaze.Html.Renderer.Utf8
 import qualified Clay
+import qualified Clay.Stylesheet as Clay
 import qualified Data.ByteString.Char8 as B
+
+boxShadowsWithSpread :: [(Clay.Size a, Clay.Size a, Clay.Size a, Clay.Size a, Clay.Color)] -> Clay.Css
+boxShadowsWithSpread = Clay.key "box-shadow" . map (\(a, b, c, d, e) -> a Clay.! b Clay.! c Clay.! d Clay.! e)
 
 pointPrognosis :: Html
 pointPrognosis = mkTable $ do
@@ -170,33 +174,51 @@ style = do
     Clay.color "#757575"
 
   Clay.header Clay.? do
-    Clay.height (Clay.rem 5)
-    Clay.boxShadow Clay.nil (Clay.px 1) (Clay.px 6) (Clay.rgba 0 0 0 90)
+    Clay.backgroundColor "#3f51b5"
+    Clay.color Clay.white
+    Clay.fontSize (Clay.px 20)
+    Clay.fontWeight (Clay.weight 400)
+
+    boxShadowsWithSpread shadow
+
+    Clay.padding (Clay.px 0) (Clay.px 0) (Clay.px 0) (Clay.px 60)
+    Clay.height (Clay.px 64)
+    Clay.lineHeight (Clay.px 64)
 
   Clay.h1 <> Clay.h2 Clay.? do
-    Clay.color "#444444"
-
-  Clay.header Clay.** Clay.h1 Clay.? do
-    Clay.margin Clay.nil Clay.nil Clay.nil Clay.nil
-    Clay.lineHeight (Clay.rem 5)
+    Clay.color (Clay.rgba 0 0 0 0.54)
+    Clay.textTransform Clay.uppercase
+    Clay.fontSize (Clay.px 16)
 
   ".content" Clay.? do
     Clay.maxWidth (Clay.px 800)
     Clay.margin Clay.nil Clay.auto Clay.nil Clay.auto
 
   Clay.a Clay.? do
-    Clay.backgroundColor "#448aff"
+    Clay.backgroundColor "#3f51b5"
     Clay.color Clay.white
     Clay.textDecoration Clay.none
-    Clay.fontSize (Clay.rem 0.875)
+    Clay.fontSize (Clay.px 14)
+    Clay.fontWeight (Clay.weight 500)
 
     Clay.borderRadius (Clay.px 2) (Clay.px 2) (Clay.px 2) (Clay.px 2)
+    boxShadowsWithSpread shadow
 
     Clay.margin (Clay.px 2) (Clay.px 2) (Clay.px 2) (Clay.px 2)
+    Clay.padding (Clay.px 0) (Clay.px 16) (Clay.px 0) (Clay.px 16)
     Clay.textAlign (Clay.alignSide Clay.sideCenter)
+    Clay.textTransform Clay.uppercase
     Clay.display Clay.inlineBlock
-    Clay.lineHeight (Clay.rem 3)
-    Clay.width (Clay.rem 9)
+    Clay.height (Clay.px 36)
+    Clay.lineHeight (Clay.px 36)
+    Clay.minWidth (Clay.px 160)
+
+  where
+    shadow =
+      [ (Clay.px 0, Clay.px 2, Clay.px 2, Clay.px 0,    Clay.rgba 0 0 0 0.14)
+      , (Clay.px 0, Clay.px 3, Clay.px 1, Clay.px (-2), Clay.rgba 0 0 0 0.2)
+      , (Clay.px 0, Clay.px 1, Clay.px 5, Clay.px 0,    Clay.rgba 0 0 0 0.12)
+      ]
 
 main :: IO ()
 main = renderHtmlToByteStringIO B.putStrLn compactSite
