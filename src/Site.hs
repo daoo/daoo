@@ -11,8 +11,6 @@ module Site
   , mkRow
   , mkSubHeader
   , mkTable
-  , mkTableButton
-  , mkTableButton1
   , mkTableRow
   ) where
 
@@ -64,21 +62,12 @@ mkRow :: H.Html -> H.Html
 mkRow = H.div
 
 mkTableRow :: String -> H.Html -> H.Html
-mkTableRow heading cells = H.tr $ do
+mkTableRow heading inner = H.tr $ do
   H.td (H.toHtml heading)
-  cells
-
-mkTableCell :: H.Html -> H.Html
-mkTableCell = H.td
+  H.td inner
 
 mkTable :: H.Html -> H.Html
 mkTable = H.table
-
-mkTableButton :: String -> String -> String -> Html
-mkTableButton label url desc = mkTableCell (mkButton label url desc)
-
-mkTableButton1 :: String -> String -> Html
-mkTableButton1 label url = mkTableCell (mkButton1 label url)
 
 urlenc :: String -> String
 urlenc = encodeWith escape

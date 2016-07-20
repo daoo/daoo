@@ -60,58 +60,58 @@ pointPrognosis = mkTable $ do
 
   where
     vaderprognosen ident = do
-      mkTableButton1 "Höjdvind" ("http://www.vaderprognosen.se/vader/prognos/hpfcst.php?place=" <> ident <> "&type=0")
-      mkTableButton1 "Tempkurva" ("http://www.vaderprognosen.se/vader/prognos/hpfcst.php?place=" <> ident <> "&type=1")
+      mkButton1 "Höjdvind" ("http://www.vaderprognosen.se/vader/prognos/hpfcst.php?place=" <> ident <> "&type=0")
+      mkButton1 "Tempkurva" ("http://www.vaderprognosen.se/vader/prognos/hpfcst.php?place=" <> ident <> "&type=1")
 
     ballong, windguru :: Int -> Html
-    ballong ident = mkTableButton1 "Ballongväder" ("http://www.ballong.org/drupal/vader/" <> show ident)
-    windguru ident = mkTableButton1 "Översiktsprognos" ("http://www.windguru.cz/int/index.php?sc=" <> show ident)
+    ballong ident = mkButton1 "Ballongväder" ("http://www.ballong.org/drupal/vader/" <> show ident)
+    windguru ident = mkButton1 "Översiktsprognos" ("http://www.windguru.cz/int/index.php?sc=" <> show ident)
 
 fieldPrognosis :: Html
 fieldPrognosis = mkTable $ do
   mkTableRow "Blixt" $ do
-    mkTableButton "blitzortung.org" "http://www.blitzortung.org/Webpages/index.php?lang=en&page_0=11" "Live"
+    mkButton "blitzortung.org" "http://www.blitzortung.org/Webpages/index.php?lang=en&page_0=11" "Live"
 
   mkTableRow "Frontkarta" $ do
-    mkTableButton1 "dmi.dk" "http://www.dmi.dk/vejr/til-lands/vejrkort"
+    mkButton1 "dmi.dk" "http://www.dmi.dk/vejr/til-lands/vejrkort"
 
   mkTableRow "Lufttryck" $ do
-    mkTableButton1 "klart.se" "http://www.klart.se/lufttryck"
-    mkTableButton1 "dmi.dk" "http://www.dmi.dk/vejr/til-lands/vejrkort"
-    mkTableButton1 "yr.no" "http://www.yr.no/kart/#laga=trykk"
-    mkTableButton1 "vaderradar.se" "http://www.vaderradar.se/gfsforecast/LTEuropeWind"
+    mkButton1 "klart.se" "http://www.klart.se/lufttryck"
+    mkButton1 "dmi.dk" "http://www.dmi.dk/vejr/til-lands/vejrkort"
+    mkButton1 "yr.no" "http://www.yr.no/kart/#laga=trykk"
+    mkButton1 "vaderradar.se" "http://www.vaderradar.se/gfsforecast/LTEuropeWind"
 
   mkTableRow "Luftfuktighet" $ do
-    mkTableButton1 "dmi.dk" "http://www.dmi.dk/vejr/til-lands/vejrkort"
+    mkButton1 "dmi.dk" "http://www.dmi.dk/vejr/til-lands/vejrkort"
 
   mkTableRow "Moln" $ do
-    mkTableButton1 "vaderprognosen.se" "http://www.vaderprognosen.se/vader/prognos/index.php?d=2&a=2&aoi=th1&p=cldbase"
-    mkTableButton1 "klart.se" "http://www.klart.se/moln"
-    mkTableButton1 "vaderradar.se" "http://www.vaderradar.se/gfsforecast/LTEuropeClouds"
+    mkButton1 "vaderprognosen.se" "http://www.vaderprognosen.se/vader/prognos/index.php?d=2&a=2&aoi=th1&p=cldbase"
+    mkButton1 "klart.se" "http://www.klart.se/moln"
+    mkButton1 "vaderradar.se" "http://www.vaderradar.se/gfsforecast/LTEuropeClouds"
 
   mkTableRow "Nederbörd" $ do
-    mkTableButton1 "vaderprognosen.se" "http://www.vaderprognosen.se/vader/prognos/index.php?d=2&a=2&aoi=th1&p=prec"
-    mkTableButton1 "klart.se (Europa)" "http://www.klart.se/europa/nederbörd"
-    mkTableButton1 "klart.se (Sverige)" "http://www.klart.se/nederbörd"
-    mkTableButton1 "vaderradar.se" "http://www.vaderradar.se/gfsforecast/LTEuropeRain"
-    mkTableButton1 "vaderradar.se" "http://www.vaderradar.se/radarscanprognos"
+    mkButton1 "vaderprognosen.se" "http://www.vaderprognosen.se/vader/prognos/index.php?d=2&a=2&aoi=th1&p=prec"
+    mkButton1 "klart.se (Europa)" "http://www.klart.se/europa/nederbörd"
+    mkButton1 "klart.se (Sverige)" "http://www.klart.se/nederbörd"
+    mkButton1 "vaderradar.se" "http://www.vaderradar.se/gfsforecast/LTEuropeRain"
+    mkButton1 "vaderradar.se" "http://www.vaderradar.se/radarscanprognos"
 
   mkTableRow "Radar" $ do
-    mkTableButton "baltrad.eu" "http://se.baltrad.eu" "5 min"
-    mkTableButton "radareu.cz" "http://www.radareu.cz" "15 min"
-    mkTableButton "smhi.se" "http://www.smhi.se/vadret/nederbord-molnighet/radar-blixt-sverige" "15 min (med blixt)"
-    mkTableButton "klart.se" "http://www.klart.se/nederbörd" "60 min (med historik)"
-    mkTableButton "vaderradar.se" "http://www.vaderradar.se/radarscandinavie" "15 min"
+    mkButton "baltrad.eu" "http://se.baltrad.eu" "5 min"
+    mkButton "radareu.cz" "http://www.radareu.cz" "15 min"
+    mkButton "smhi.se" "http://www.smhi.se/vadret/nederbord-molnighet/radar-blixt-sverige" "15 min (med blixt)"
+    mkButton "klart.se" "http://www.klart.se/nederbörd" "60 min (med historik)"
+    mkButton "vaderradar.se" "http://www.vaderradar.se/radarscandinavie" "15 min"
 
   mkTableRow "Satellit" $ do
-    mkTableButton1 "smhi.se" "http://www.smhi.se/vadret/nederbord-molnighet/satellit-norden-rgb"
-    mkTableButton1 "klart.se" "http://www.klart.se/europa/satellit"
+    mkButton1 "smhi.se" "http://www.smhi.se/vadret/nederbord-molnighet/satellit-norden-rgb"
+    mkButton1 "klart.se" "http://www.klart.se/europa/satellit"
 
   mkTableRow "Vind" $ do
-    mkTableButton1 "vaderprognosen.se" "http://www.vaderprognosen.se/vader/prognos/index.php?d=2&a=2&aoi=th1&p=wind10m"
-    mkTableButton1 "klart.se" "http://www.klart.se/vind"
-    mkTableButton1 "vaderradar.se" "http://www.vaderradar.se/gfsforecast/LTEuropeWind"
-    mkTableButton1 "dmi.dk" "http://www.dmi.dk/vejr/til-lands/vejrkort"
+    mkButton1 "vaderprognosen.se" "http://www.vaderprognosen.se/vader/prognos/index.php?d=2&a=2&aoi=th1&p=wind10m"
+    mkButton1 "klart.se" "http://www.klart.se/vind"
+    mkButton1 "vaderradar.se" "http://www.vaderradar.se/gfsforecast/LTEuropeWind"
+    mkButton1 "dmi.dk" "http://www.dmi.dk/vejr/til-lands/vejrkort"
 
 compactSite :: Html
 compactSite = docTypeHtml $ do
