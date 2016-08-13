@@ -28,8 +28,8 @@ pointPrognosis = mkTable $ do
     vaderprognosen "Gränna"
     windguru 2781
   mkTableRow "Göteborg" $ do
-    windguru 86
     vaderprognosen "Göteborg"
+    windguru 86
   mkTableRow "Säve" $ do
     ballong 2512
   mkTableRow "Landvetter" $ do
