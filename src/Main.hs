@@ -1,60 +1,61 @@
 {-# LANGUAGE OverloadedStrings #-}
 module Main (main) where
 
+import Clay hiding (map, key)
 import Data.Monoid
 import Site
 import Text.Blaze.Html.Renderer.Utf8
-import qualified Clay
-import qualified Clay.Stylesheet as Clay
+import qualified Clay.Media as Media
+import qualified Clay.Stylesheet as Stylesheet
 import qualified Data.ByteString.Char8 as B
 
-boxShadowsWithSpread :: [(Clay.Size a, Clay.Size a, Clay.Size a, Clay.Size a, Clay.Color)] -> Clay.Css
-boxShadowsWithSpread = Clay.key "box-shadow" . map (\(a, b, c, d, e) -> a Clay.! b Clay.! c Clay.! d Clay.! e)
+boxShadowsWithSpread :: [(Size a, Size a, Size a, Size a, Color)] -> Css
+boxShadowsWithSpread = Stylesheet.key "box-shadow" . map (\(a, b, c, d, e) -> a ! b ! c ! d ! e)
 
 pointPrognosis :: Html
-pointPrognosis = mkTable $ do
-  mkTableRow "Alingsås" $ do
+pointPrognosis = do
+  mkLevel2 "Alingsås" $ do
     ballong 2515
     vaderprognosen "Alingsås"
-  mkTableRow "Borlänge" $ do
+  mkLevel2 "Borlänge" $ do
     ballong 2435
     vaderprognosen "Borlänge"
     windguru 21763
-  mkTableRow "Dalsland" $ do
+  mkLevel2 "Dalsland" $ do
     ballong 2540
     vaderprognosen "Kroppefjäll"
     windguru 4849
-  mkTableRow "Gränna" $ do
+  mkLevel2 "Gränna" $ do
     vaderprognosen "Gränna"
     windguru 2781
-  mkTableRow "Göteborg" $ do
+  mkLevel2 "Göteborg" $ do
     vaderprognosen "Göteborg"
     windguru 86
-  mkTableRow "Säve" $ do
+  mkLevel2 "Säve" $ do
     ballong 2512
-  mkTableRow "Landvetter" $ do
+  mkLevel2 "Landvetter" $ do
     ballong 2526
-  mkTableRow "Jönköping" $ do
+  mkLevel2 "Jönköping" $ do
     ballong 2550
     vaderprognosen "Jönköping"
     windguru 152
-  mkTableRow "Skövde" $ do
+  mkLevel2 "Skövde" $ do
     ballong 2535
     vaderprognosen "Skövde"
     windguru 32689
-  mkTableRow "Såtenäs" $ do
+  mkLevel2 "Såtenäs" $ do
     ballong 2520
     vaderprognosen "Såtenäs"
-  mkTableRow "Örebro" $ do
+  mkLevel2 "Örebro" $ do
     ballong 2432
     vaderprognosen "Örebro"
     windguru 27536
-  mkTableRow "Skara" $ do
+  mkLevel2 "Skara" $ do
     vaderprognosen "Skara"
     windguru 33291
-  mkTableRow "Vara" $ do
+  mkLevel2 "Vara" $ do
     vaderprognosen "Vara"
-  mkTableRow "Uddevalla" $ do
+  mkLevel2 "Uddevalla" $ do
     vaderprognosen "Uddevalla"
     windguru 333774
 
@@ -68,46 +69,46 @@ pointPrognosis = mkTable $ do
     windguru ident = mkButton1 "Översiktsprognos" ("http://www.windguru.cz/int/index.php?sc=" <> show ident)
 
 fieldPrognosis :: Html
-fieldPrognosis = mkTable $ do
-  mkTableRow "Blixt" $ do
+fieldPrognosis = do
+  mkLevel2 "Blixt" $ do
     mkButton "blitzortung.org" "http://www.blitzortung.org/Webpages/index.php?lang=en&page_0=11" "Live"
 
-  mkTableRow "Frontkarta" $ do
+  mkLevel2 "Frontkarta" $ do
     mkButton1 "dmi.dk" "http://www.dmi.dk/vejr/til-lands/vejrkort"
 
-  mkTableRow "Lufttryck" $ do
+  mkLevel2 "Lufttryck" $ do
     mkButton1 "klart.se" "http://www.klart.se/lufttryck"
     mkButton1 "dmi.dk" "http://www.dmi.dk/vejr/til-lands/vejrkort"
     mkButton1 "yr.no" "http://www.yr.no/kart/#laga=trykk"
     mkButton1 "vaderradar.se" "http://www.vaderradar.se/gfsforecast/LTEuropeWind"
 
-  mkTableRow "Luftfuktighet" $ do
+  mkLevel2 "Luftfuktighet" $ do
     mkButton1 "dmi.dk" "http://www.dmi.dk/vejr/til-lands/vejrkort"
 
-  mkTableRow "Moln" $ do
+  mkLevel2 "Moln" $ do
     mkButton1 "vaderprognosen.se" "http://www.vaderprognosen.se/vader/prognos/index.php?d=2&a=2&aoi=th1&p=cldbase"
     mkButton1 "klart.se" "http://www.klart.se/moln"
     mkButton1 "vaderradar.se" "http://www.vaderradar.se/gfsforecast/LTEuropeClouds"
 
-  mkTableRow "Nederbörd" $ do
+  mkLevel2 "Nederbörd" $ do
     mkButton1 "vaderprognosen.se" "http://www.vaderprognosen.se/vader/prognos/index.php?d=2&a=2&aoi=th1&p=prec"
     mkButton1 "klart.se (Europa)" "http://www.klart.se/europa/nederbörd"
     mkButton1 "klart.se (Sverige)" "http://www.klart.se/nederbörd"
     mkButton1 "vaderradar.se" "http://www.vaderradar.se/gfsforecast/LTEuropeRain"
     mkButton1 "vaderradar.se" "http://www.vaderradar.se/radarscanprognos"
 
-  mkTableRow "Radar" $ do
+  mkLevel2 "Radar" $ do
     mkButton "baltrad.eu" "http://se.baltrad.eu" "5 min"
     mkButton "radareu.cz" "http://www.radareu.cz" "15 min"
     mkButton "smhi.se" "http://www.smhi.se/vadret/nederbord-molnighet/radar-blixt-sverige" "15 min (med blixt)"
     mkButton "klart.se" "http://www.klart.se/nederbörd" "60 min (med historik)"
     mkButton "vaderradar.se" "http://www.vaderradar.se/radarscandinavie" "15 min"
 
-  mkTableRow "Satellit" $ do
+  mkLevel2 "Satellit" $ do
     mkButton1 "smhi.se" "http://www.smhi.se/vadret/nederbord-molnighet/satellit-norden-rgb"
     mkButton1 "klart.se" "http://www.klart.se/europa/satellit"
 
-  mkTableRow "Vind" $ do
+  mkLevel2 "Vind" $ do
     mkButton1 "vaderprognosen.se" "http://www.vaderprognosen.se/vader/prognos/index.php?d=2&a=2&aoi=th1&p=wind10m"
     mkButton1 "klart.se" "http://www.klart.se/vind"
     mkButton1 "vaderradar.se" "http://www.vaderradar.se/gfsforecast/LTEuropeWind"
@@ -115,110 +116,117 @@ fieldPrognosis = mkTable $ do
 
 compactSite :: Html
 compactSite = docTypeHtml $ do
-  mkHead "Flygplanering" (Clay.renderWith Clay.compact [] style)
+  mkHead "Flygplanering" (renderWith compact [] siteStyle)
   mkBody $ do
     mkHeader "Flight Planning Center"
 
     mkContent $ do
-      mkSubHeader "Punktprognoser"
-      pointPrognosis
+      mkLevel1 "Punktprognoser"
+        pointPrognosis
 
-      mkSubHeader "Fältprognoser"
-      fieldPrognosis
+      mkLevel1 "Fältprognoser"
+        fieldPrognosis
 
-      mkSubHeader "Metrologens Kommentarer"
-      mkRow $ do
+      mkLevel1 "Metrologens Kommentarer" $ do
         mkButton1 "DMI Vecka"  "http://www.dmi.dk/vejr/til-lands/landsudsigten"
         mkButton1 "DMI Säsong" "http://www.dmi.dk/vejr/til-lands/maaned-og-saeson"
         mkButton1 "SMHI Vecka" "http://www.smhi.se/vadret/vadret-i-sverige/meteorologens-kommentar"
 
-      mkSubHeader "Flygvädret"
-      mkRow $ do
+      mkLevel1 "Flygvädret" $ do
         mkButton1 "NSWC"  "https://aro.lfv.se/Links/Link/ViewLink?type=MET&TorLinkId=229"
         mkButton1 "METAR" "https://aro.lfv.se/Links/Link/ViewLink?type=MET&TorLinkId=300"
         mkButton1 "TAF"   "https://aro.lfv.se/Links/Link/ViewLink?type=MET&TorLinkId=304"
 
-      mkRow $ do
         mkButton1 "LHP Område A" "https://aro.lfv.se/Links/Link/ViewLink?type=MET&TorLinkId=307"
         mkButton1 "LHP Område B" "https://aro.lfv.se/Links/Link/ViewLink?type=MET&TorLinkId=308"
         mkButton1 "LHP Område C" "https://aro.lfv.se/Links/Link/ViewLink?type=MET&TorLinkId=309"
         mkButton1 "LHP Område D" "https://aro.lfv.se/Links/Link/ViewLink?type=MET&TorLinkId=310"
 
-      mkRow $ do
         mkButton1 "AIP SUP" "https://aro.lfv.se/Editorial/View/IAIP?folderId=22"
         mkButton1 "NOTAM"   "https://aro.lfv.se/Links/Link/ViewLink?TorLinkId=162&type=AIS"
 
-      mkSubHeader "Väderlänkar"
-      mkRow $ do
+      mkLevel1 "Väderlänkar" $ do
         mkButton1 "earth.nullschool.net" "http://earth.nullschool.net"
         mkButton1 "windyty.com"          "https://www.windyty.com"
         mkButton1 "wetterzentrale.de"    "http://www.wetterzentrale.de"
         mkButton1 "svn.universeum.se"    "http://svn.universeum.se/index_vadretnu.htm"
 
-      mkSubHeader "Geografiska Kartor"
-      mkRow $ do
+      mkLevel1 "Geografiska Kartor" $ do
         mkButton1 "lantmateriet.se" "https://kso.etjanster.lantmateriet.se"
         mkButton1 "hitta.se"        "http://www.hitta.se/kartan"
         mkButton1 "eniro.se"        "http://kartor.eniro.se"
         mkButton1 "bing.com"        "https://www.bing.com/maps"
         mkButton1 "google.com"      "https://www.google.com/maps"
 
-style :: Clay.Css
-style = do
-  Clay.html <> Clay.body Clay.? do
-    Clay.margin Clay.nil Clay.nil Clay.nil Clay.nil
-    Clay.padding Clay.nil Clay.nil Clay.nil Clay.nil
+siteStyle :: Css
+siteStyle = do
+  html <> body ? do
+    margin nil nil nil nil
+    padding nil nil nil nil
 
-  Clay.body Clay.? do
-    Clay.fontFamily ["Roboto"] [Clay.sansSerif]
-    Clay.color "#757575"
+  body ? do
+    fontFamily [] [sansSerif]
+    color medium
 
-  Clay.header Clay.? do
-    Clay.backgroundColor "#3f51b5"
-    Clay.color Clay.white
-    Clay.fontSize (Clay.px 20)
-    Clay.fontWeight (Clay.weight 400)
+  header ? do
+    backgroundColor dark
+    color light
+    fontSize (px 28)
+    fontWeight bold
 
-    boxShadowsWithSpread shadow
+    -- boxShadowsWithSpread shadow
 
-    Clay.padding (Clay.px 0) (Clay.px 0) (Clay.px 0) (Clay.px 60)
-    Clay.height (Clay.px 64)
-    Clay.lineHeight (Clay.px 64)
+    wide $ paddingLeft (px 60)
+    narrow <> narrower $ textAlign (alignSide sideCenter)
+    height (px 64)
+    lineHeight (px 64)
 
-  Clay.h1 <> Clay.h2 Clay.? do
-    Clay.color (Clay.rgba 0 0 0 0.54)
-    Clay.textTransform Clay.uppercase
-    Clay.fontSize (Clay.px 16)
+  h1 <> h2 ? do
+    color medium
+    marginBottom nil
 
-  ".content" Clay.? do
-    Clay.maxWidth (Clay.px 800)
-    Clay.margin Clay.nil Clay.auto Clay.nil Clay.auto
+  ".content" ? do
+    maxWidth wideWidth
+    marginLeft auto
+    marginRight auto
 
-  Clay.a Clay.? do
-    Clay.backgroundColor "#3f51b5"
-    Clay.color Clay.white
-    Clay.textDecoration Clay.none
-    Clay.fontSize (Clay.px 14)
-    Clay.fontWeight (Clay.weight 500)
+  a ? do
+    backgroundColor dark
+    color light
+    textDecoration none
+    fontSize (px 14)
+    fontWeight (weight 500)
 
-    Clay.borderRadius (Clay.px 2) (Clay.px 2) (Clay.px 2) (Clay.px 2)
-    boxShadowsWithSpread shadow
+    -- borderRadius (px 2) (px 2) (px 2) (px 2)
+    -- boxShadowsWithSpread shadow
 
-    Clay.margin (Clay.px 2) (Clay.px 2) (Clay.px 2) (Clay.px 2)
-    Clay.padding (Clay.px 0) (Clay.px 16) (Clay.px 0) (Clay.px 16)
-    Clay.textAlign (Clay.alignSide Clay.sideCenter)
-    Clay.textTransform Clay.uppercase
-    Clay.display Clay.inlineBlock
-    Clay.height (Clay.px 36)
-    Clay.lineHeight (Clay.px 36)
-    Clay.minWidth (Clay.px 160)
+    textAlign (alignSide sideCenter)
+    lineHeight (px 36)
+
+    display inlineBlock
+    margin (pct 1) (pct 0.6) (pct 1) (pct 0.6)
+    height (px 36)
+    wide $ width (pct 23.8)
+    narrow $ width (pct 48.8)
+    narrower $ width (pct 98.8)
 
   where
+    dark = "#2196f3"
+    medium = "#212121"
+    light = "#ffffff"
+
     shadow =
-      [ (Clay.px 0, Clay.px 2, Clay.px 2, Clay.px 0,    Clay.rgba 0 0 0 0.14)
-      , (Clay.px 0, Clay.px 3, Clay.px 1, Clay.px (-2), Clay.rgba 0 0 0 0.2)
-      , (Clay.px 0, Clay.px 1, Clay.px 5, Clay.px 0,    Clay.rgba 0 0 0 0.12)
+      [ (px 0, px 2, px 2, px 0,    rgba 0 0 0 0.14)
+      , (px 0, px 3, px 1, px (-2), rgba 0 0 0 0.2)
+      , (px 0, px 1, px 5, px 0,    rgba 0 0 0 0.12)
       ]
+
+    wideWidth = px 800
+    narrowerWidth = px 400
+
+    wide = query Clay.all [Media.minWidth wideWidth]
+    narrow = query Clay.all [Media.minWidth narrowerWidth, Media.maxWidth wideWidth]
+    narrower = query Clay.all [Media.maxWidth narrowerWidth]
 
 main :: IO ()
 main = renderHtmlToByteStringIO B.putStrLn compactSite
