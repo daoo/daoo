@@ -27,10 +27,8 @@ pointPrognosis = do
   mkLevel2 "Göteborg" $ do
     vaderprognosen "Göteborg"
     windguru 86
-  mkLevel2 "Säve" $ do
-    ballong 2512
-  mkLevel2 "Landvetter" $ do
-    ballong 2526
+    mkButton1 "Säve" (ballongUrl 2512)
+    mkButton1 "Landvetter" (ballongUrl 2526)
   mkLevel2 "Jönköping" $ do
     ballong 2550
     vaderprognosen "Jönköping"
@@ -56,13 +54,19 @@ pointPrognosis = do
     windguru 333774
 
   where
-    vaderprognosen ident = do
-      mkButton1 "Höjdvind" ("http://www.vaderprognosen.se/vader/prognos/hpfcst.php?place=" <> ident <> "&type=0")
-      mkButton1 "Tempkurva" ("http://www.vaderprognosen.se/vader/prognos/hpfcst.php?place=" <> ident <> "&type=1")
+    hojdUrl, tempUrl :: String -> String
+    hojdUrl str = "http://www.vaderprognosen.se/vader/prognos/hpfcst.php?place=" <> str <> "&type=0"
+    tempUrl str = "http://www.vaderprognosen.se/vader/prognos/hpfcst.php?place=" <> str <> "&type=1"
 
-    ballong, windguru :: Int -> Html
-    ballong ident = mkButton1 "Ballongväder" ("http://www.ballong.org/drupal/vader/" <> show ident)
-    windguru ident = mkButton1 "Översiktsprognos" ("http://www.windguru.cz/int/index.php?sc=" <> show ident)
+    ballongUrl, windguruUrl :: Int -> String
+    ballongUrl = mappend "http://www.ballong.org/drupal/vader/" . show
+    windguruUrl = mappend "http://www.windguru.cz/int/index.php?sc=" . show
+
+    ballong = mkButton1 "Ballongväder" . ballongUrl
+    windguru = mkButton1 "Översiktsprognos" . windguruUrl
+    vaderprognosen ident = do
+      mkButton1 "Höjdvind" (hojdUrl ident)
+      mkButton1 "Tempkurva" (tempUrl ident)
 
 fieldPrognosis :: Html
 fieldPrognosis = do
