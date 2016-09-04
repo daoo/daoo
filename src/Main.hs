@@ -1,16 +1,12 @@
 {-# LANGUAGE OverloadedStrings #-}
 module Main (main) where
 
-import Clay hiding (map, key)
+import Clay hiding (map)
 import Data.Monoid
 import Site
 import Text.Blaze.Html.Renderer.Utf8
 import qualified Clay.Media as Media
-import qualified Clay.Stylesheet as Stylesheet
 import qualified Data.ByteString.Char8 as B
-
-boxShadowsWithSpread :: [(Size a, Size a, Size a, Size a, Color)] -> Css
-boxShadowsWithSpread = Stylesheet.key "box-shadow" . map (\(a, b, c, d, e) -> a ! b ! c ! d ! e)
 
 pointPrognosis :: Html
 pointPrognosis = do
@@ -214,12 +210,6 @@ siteStyle = do
     dark = "#2196f3"
     medium = "#212121"
     light = "#ffffff"
-
-    shadow =
-      [ (px 0, px 2, px 2, px 0,    rgba 0 0 0 0.14)
-      , (px 0, px 3, px 1, px (-2), rgba 0 0 0 0.2)
-      , (px 0, px 1, px 5, px 0,    rgba 0 0 0 0.12)
-      ]
 
     wideWidth = px 800
     narrowerWidth = px 400
