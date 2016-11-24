@@ -60,7 +60,7 @@ pointPrognosis = do
 
     ballongUrl, windguruUrl :: Int -> String
     ballongUrl = mappend "http://www.ballong.org/drupal/vader/" . show
-    windguruUrl = mappend "http://www.windguru.cz/int/index.php?sc=" . show
+    windguruUrl = mappend "https://www.windguru.cz/" . show
 
     ballong = mkButton1 "Ballongväder" . ballongUrl
     windguru = mkButton1 "Översiktsprognos" . windguruUrl
