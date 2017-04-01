@@ -77,7 +77,7 @@ fieldPrognosis = do
     mkButton1 "dmi.dk" "https://www.dmi.dk/vejr/til-lands/vejrkort"
 
   mkLevel2 "Lufttryck" $ do
-    mkButton1 "foreca.se" "http://www.foreca.se/Sverige/V%C3%A4stra-G%C3%B6taland/G%C3%B6teborg/karta/lufttryck"
+    mkButton1 "foreca.se" "http://www.foreca.se/Sverige/Västra-Götaland/Göteborg/karta/lufttryck"
     mkButton1 "dmi.dk" "https://www.dmi.dk/vejr/til-lands/vejrkort"
     mkButton1 "yr.no" "https://www.yr.no/kart/#laga=trykk"
     mkButton1 "vaderradar.se" "http://www.vaderradar.se/gfsforecast/LTEuropeWind"
@@ -87,19 +87,19 @@ fieldPrognosis = do
 
   mkLevel2 "Moln" $ do
     mkButton1 "vaderprognosen.se" "http://www.vaderprognosen.se/vader/prognos/index.php?d=2&a=2&aoi=th1&p=cldbase"
-    mkButton1 "klart.se" "https://www.klart.se/se/v%C3%A4derkartor/moln"
+    mkButton1 "klart.se" "https://www.klart.se/se/väderkartor/moln"
     mkButton1 "vaderradar.se" "http://www.vaderradar.se/gfsforecast/LTEuropeClouds"
 
   mkLevel2 "Nederbörd" $ do
     mkButton1 "vaderprognosen.se" "http://www.vaderprognosen.se/vader/prognos/index.php?d=2&a=2&aoi=th1&p=prec"
-    mkButton1 "klart.se (Europa)" "https://www.klart.se/europa/v%C3%A4derkartor/nederb%C3%B6rd"
-    mkButton1 "klart.se (Sverige)" "https://www.klart.se/se/v%C3%A4derkartor/nederb%C3%B6rd"
+    mkButton1 "klart.se (Europa)" "https://www.klart.se/europa/väderkartor/nederbörd"
+    mkButton1 "klart.se (Sverige)" "https://www.klart.se/se/väderkartor/nederbörd"
     mkButton1 "vaderradar.se" "http://www.vaderradar.se/gfsforecast/LTEuropeRain"
     mkButton1 "vaderradar.se" "http://www.vaderradar.se/radarscanprognos"
 
   mkLevel2 "Radar" $ do
     mkButton "baltrad.eu" "http://se.baltrad.eu" "5 min"
-    mkButton "foreca.se" "http://www.foreca.se/Sverige/V%C3%A4stra-G%C3%B6taland/G%C3%B6teborg/karta/v%C3%A4derradar/v_gotaland" "10 min (med historik)"
+    mkButton "foreca.se" "http://www.foreca.se/Sverige/Västra-Götaland/Göteborg/karta/väderradar/v_gotaland" "10 min (med historik)"
     mkButton "radareu.cz" "http://www.radareu.cz" "15 min"
     mkButton "smhi.se" "https://www.smhi.se/vadret/nederbord-molnighet/radar-blixt-sverige" "15 min (med blixt)"
     mkButton "vaderradar.se" "http://www.vaderradar.se/radarscandinavie" "15 min"
@@ -109,7 +109,7 @@ fieldPrognosis = do
 
   mkLevel2 "Vind" $ do
     mkButton1 "vaderprognosen.se" "http://www.vaderprognosen.se/vader/prognos/index.php?d=2&a=2&aoi=th1&p=wind10m"
-    mkButton1 "klart.se" "https://www.klart.se/se/kustkartor/nidingen-m%C3%A5sesk%C3%A4r/vind"
+    mkButton1 "klart.se" "https://www.klart.se/se/kustkartor/nidingen-måseskär/vind"
     mkButton1 "vaderradar.se" "http://www.vaderradar.se/gfsforecast/LTEuropeWind"
     mkButton1 "dmi.dk" "https://www.dmi.dk/vejr/til-lands/vejrkort"
 
