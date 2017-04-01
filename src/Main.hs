@@ -74,16 +74,16 @@ fieldPrognosis = do
     mkButton "blitzortung.org" "http://en.blitzortung.org/live_lightning_maps.php" "Live"
 
   mkLevel2 "Frontkarta" $ do
-    mkButton1 "dmi.dk" "http://www.dmi.dk/vejr/til-lands/vejrkort"
+    mkButton1 "dmi.dk" "https://www.dmi.dk/vejr/til-lands/vejrkort"
 
   mkLevel2 "Lufttryck" $ do
     mkButton1 "foreca.se" "http://www.foreca.se/Sverige/V%C3%A4stra-G%C3%B6taland/G%C3%B6teborg/karta/lufttryck"
-    mkButton1 "dmi.dk" "http://www.dmi.dk/vejr/til-lands/vejrkort"
-    mkButton1 "yr.no" "http://www.yr.no/kart/#laga=trykk"
+    mkButton1 "dmi.dk" "https://www.dmi.dk/vejr/til-lands/vejrkort"
+    mkButton1 "yr.no" "https://www.yr.no/kart/#laga=trykk"
     mkButton1 "vaderradar.se" "http://www.vaderradar.se/gfsforecast/LTEuropeWind"
 
   mkLevel2 "Luftfuktighet" $ do
-    mkButton1 "dmi.dk" "http://www.dmi.dk/vejr/til-lands/vejrkort"
+    mkButton1 "dmi.dk" "https://www.dmi.dk/vejr/til-lands/vejrkort"
 
   mkLevel2 "Moln" $ do
     mkButton1 "vaderprognosen.se" "http://www.vaderprognosen.se/vader/prognos/index.php?d=2&a=2&aoi=th1&p=cldbase"
@@ -101,17 +101,17 @@ fieldPrognosis = do
     mkButton "baltrad.eu" "http://se.baltrad.eu" "5 min"
     mkButton "foreca.se" "http://www.foreca.se/Sverige/V%C3%A4stra-G%C3%B6taland/G%C3%B6teborg/karta/v%C3%A4derradar/v_gotaland" "10 min (med historik)"
     mkButton "radareu.cz" "http://www.radareu.cz" "15 min"
-    mkButton "smhi.se" "http://www.smhi.se/vadret/nederbord-molnighet/radar-blixt-sverige" "15 min (med blixt)"
+    mkButton "smhi.se" "https://www.smhi.se/vadret/nederbord-molnighet/radar-blixt-sverige" "15 min (med blixt)"
     mkButton "vaderradar.se" "http://www.vaderradar.se/radarscandinavie" "15 min"
 
   mkLevel2 "Satellit" $ do
-    mkButton1 "smhi.se" "http://www.smhi.se/vadret/nederbord-molnighet/satellit-norden-rgb"
+    mkButton1 "smhi.se" "https://www.smhi.se/vadret/nederbord-molnighet/satellit-norden-rgb"
 
   mkLevel2 "Vind" $ do
     mkButton1 "vaderprognosen.se" "http://www.vaderprognosen.se/vader/prognos/index.php?d=2&a=2&aoi=th1&p=wind10m"
     mkButton1 "klart.se" "https://www.klart.se/se/kustkartor/nidingen-m%C3%A5sesk%C3%A4r/vind"
     mkButton1 "vaderradar.se" "http://www.vaderradar.se/gfsforecast/LTEuropeWind"
-    mkButton1 "dmi.dk" "http://www.dmi.dk/vejr/til-lands/vejrkort"
+    mkButton1 "dmi.dk" "https://www.dmi.dk/vejr/til-lands/vejrkort"
 
 compactSite :: Html
 compactSite = docTypeHtml $ do
@@ -127,9 +127,9 @@ compactSite = docTypeHtml $ do
         fieldPrognosis
 
       mkLevel1 "Metrologens Kommentarer" $ do
-        mkButton1 "DMI Vecka"  "http://www.dmi.dk/vejr/til-lands/landsudsigten"
-        mkButton1 "DMI Säsong" "http://www.dmi.dk/vejr/til-lands/maaned-og-saeson"
-        mkButton1 "SMHI Vecka" "http://www.smhi.se/vadret/vadret-i-sverige/meteorologens-kommentar"
+        mkButton1 "DMI Vecka"  "https://www.dmi.dk/vejr/til-lands/landsudsigten"
+        mkButton1 "DMI Säsong" "https://www.dmi.dk/vejr/til-lands/maaned-og-saeson"
+        mkButton1 "SMHI Vecka" "https://www.smhi.se/vadret/vadret-i-sverige/meteorologens-kommentar"
 
       mkLevel1 "Flygvädret" $ do
         mkButton1 "NSWC"  "https://aro.lfv.se/Links/Link/ViewLink?type=MET&TorLinkId=229"
@@ -145,15 +145,15 @@ compactSite = docTypeHtml $ do
         mkButton1 "NOTAM"   "https://aro.lfv.se/Links/Link/ViewLink?TorLinkId=162&type=AIS"
 
       mkLevel1 "Väderlänkar" $ do
-        mkButton1 "earth.nullschool.net" "http://earth.nullschool.net"
+        mkButton1 "earth.nullschool.net" "https://earth.nullschool.net"
         mkButton1 "windyty.com"          "https://www.windyty.com"
         mkButton1 "wetterzentrale.de"    "http://www.wetterzentrale.de"
         mkButton1 "svn.universeum.se"    "http://svn.universeum.se/index_vadretnu.htm"
 
       mkLevel1 "Geografiska Kartor" $ do
         mkButton1 "lantmateriet.se" "https://kso.etjanster.lantmateriet.se"
-        mkButton1 "hitta.se"        "http://www.hitta.se/kartan"
-        mkButton1 "eniro.se"        "http://kartor.eniro.se"
+        mkButton1 "hitta.se"        "https://www.hitta.se/kartan"
+        mkButton1 "eniro.se"        "https://kartor.eniro.se"
         mkButton1 "bing.com"        "https://www.bing.com/maps"
         mkButton1 "google.com"      "https://www.google.com/maps"
 
