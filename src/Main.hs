@@ -71,7 +71,7 @@ pointPrognosis = do
 fieldPrognosis :: Html
 fieldPrognosis = do
   mkLevel2 "Blixt" $ do
-    mkButton "blitzortung.org" "http://www.blitzortung.org/Webpages/index.php?lang=en&page_0=11" "Live"
+    mkButton "blitzortung.org" "http://en.blitzortung.org/live_lightning_maps.php" "Live"
 
   mkLevel2 "Frontkarta" $ do
     mkButton1 "dmi.dk" "http://www.dmi.dk/vejr/til-lands/vejrkort"
