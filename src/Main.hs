@@ -87,13 +87,13 @@ fieldPrognosis = do
 
   mkLevel2 "Moln" $ do
     mkButton1 "vaderprognosen.se" "http://www.vaderprognosen.se/vader/prognos/index.php?d=2&a=2&aoi=th1&p=cldbase"
-    mkButton1 "klart.se" "https://www.klart.se/se/väderkartor/moln"
+    mkButton1 "klart.se" "https://www.klart.se/se/väderkartor/moln/"
     mkButton1 "vaderradar.se" "http://www.vaderradar.se/gfsforecast/LTEuropeClouds"
 
   mkLevel2 "Nederbörd" $ do
     mkButton1 "vaderprognosen.se" "http://www.vaderprognosen.se/vader/prognos/index.php?d=2&a=2&aoi=th1&p=prec"
-    mkButton1 "klart.se (Europa)" "https://www.klart.se/europa/väderkartor/nederbörd"
-    mkButton1 "klart.se (Sverige)" "https://www.klart.se/se/väderkartor/nederbörd"
+    mkButton1 "klart.se (Europa)" "https://www.klart.se/europa/väderkartor/nederbörd/"
+    mkButton1 "klart.se (Sverige)" "https://www.klart.se/se/väderkartor/nederbörd/"
     mkButton1 "vaderradar.se" "http://www.vaderradar.se/gfsforecast/LTEuropeRain"
     mkButton1 "vaderradar.se" "http://www.vaderradar.se/radarscanprognos"
 
@@ -109,7 +109,7 @@ fieldPrognosis = do
 
   mkLevel2 "Vind" $ do
     mkButton1 "vaderprognosen.se" "http://www.vaderprognosen.se/vader/prognos/index.php?d=2&a=2&aoi=th1&p=wind10m"
-    mkButton1 "klart.se" "https://www.klart.se/se/kustkartor/nidingen-måseskär/vind"
+    mkButton1 "klart.se" "https://www.klart.se/se/kustkartor/nidingen-måseskär/vind/"
     mkButton1 "vaderradar.se" "http://www.vaderradar.se/gfsforecast/LTEuropeWind"
     mkButton1 "dmi.dk" "https://www.dmi.dk/vejr/til-lands/vejrkort"
 
