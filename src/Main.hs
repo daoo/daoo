@@ -11,62 +11,56 @@ import qualified Data.ByteString.Char8 as B
 pointPrognosis :: Html
 pointPrognosis = do
   mkLevel2 "Alingsås" $ do
-    ballong 2515
     vaderprognosen "Alingsås"
-  mkLevel2 "Borlänge" $ do
-    ballong 2435
-    vaderprognosen "Borlänge"
-    windguru 21763
   mkLevel2 "Dalsland" $ do
-    ballong 2540
-    vaderprognosen "Kroppefjäll"
     windguru 4849
+    topmeteo "278975256/-2/6/1/0/"
+    vaderprognosen "Kroppefjäll"
   mkLevel2 "Gränna" $ do
-    vaderprognosen "Gränna"
     windguru 2781
+    vaderprognosen "Gränna"
   mkLevel2 "Göteborg" $ do
-    vaderprognosen "Göteborg"
     windguru 86
-    mkButton1 "Säve" (ballongUrl 2512)
-    mkButton1 "Landvetter" (ballongUrl 2526)
-  mkLevel2 "Jönköping" $ do
-    ballong 2550
-    vaderprognosen "Jönköping"
+    vaderprognosen "Göteborg"
+  mkLevel2 "Jönköping (ESGJ)" $ do
     windguru 152
-  mkLevel2 "Skövde" $ do
-    ballong 2535
-    vaderprognosen "Skövde"
+    vaderprognosen "Jönköping"
+  mkLevel2 "Landvetter (ESGG)" $ do
+    topmeteo "2648/-2/6/1/0/"
+    wx "ESGG"
+  mkLevel2 "Skövde (ESGR)" $ do
     windguru 32689
-  mkLevel2 "Såtenäs" $ do
-    ballong 2520
+    vaderprognosen "Skövde"
+  mkLevel2 "Såtenäs (ESIB)" $ do
     vaderprognosen "Såtenäs"
-  mkLevel2 "Örebro" $ do
-    ballong 2432
-    vaderprognosen "Örebro"
-    windguru 27536
+  mkLevel2 "Säve (ESGP)" $ do
+    topmeteo "2652/-2/6/1/0/"
+    wx "ESGP"
   mkLevel2 "Skara" $ do
-    vaderprognosen "Skara"
     windguru 33291
+    vaderprognosen "Skara"
   mkLevel2 "Vara" $ do
     vaderprognosen "Vara"
   mkLevel2 "Uddevalla" $ do
-    vaderprognosen "Uddevalla"
     windguru 333774
+    vaderprognosen "Uddevalla"
+  mkLevel2 "Örebro (ESOE)" $ do
+    windguru 27536
+    vaderprognosen "Örebro"
 
   where
-    hojdUrl, tempUrl :: String -> String
     hojdUrl str = "http://www.vaderprognosen.se/vader/prognos/hpfcst.php?place=" <> str <> "&type=0"
     tempUrl str = "http://www.vaderprognosen.se/vader/prognos/hpfcst.php?place=" <> str <> "&type=1"
-
-    ballongUrl, windguruUrl :: Int -> String
-    ballongUrl = mappend "http://www.ballong.org/drupal/vader/" . show
     windguruUrl = mappend "https://www.windguru.cz/" . show
+    topmeteoUrl = mappend "https://europe.topmeteo.eu/en-gb/eu/loc/"
+    wxUrl = mappend "http://wx.awos.se/?siteId="
 
-    ballong = mkButton1 "Ballongväder" . ballongUrl
-    windguru = mkButton1 "Översiktsprognos" . windguruUrl
     vaderprognosen ident = do
       mkButton1 "Höjdvind" (hojdUrl ident)
       mkButton1 "Tempkurva" (tempUrl ident)
+    windguru = mkButton1 "Windguru" . windguruUrl
+    topmeteo = mkButton1 "Topmeteo" . topmeteoUrl
+    wx = mkButton1 "WX" . wxUrl
 
 fieldPrognosis :: Html
 fieldPrognosis = do
